@@ -1,5 +1,5 @@
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from rest_framework.viewsets import ModelViewSet
 
 from .permissions import IsOwner
@@ -16,5 +16,3 @@ class AdvertisementViewSet(ModelViewSet):
     filterset_class = AdvertisementFilter
     permission_classes = [IsAuthenticatedOrReadOnly, IsOwner]
 
-
-    

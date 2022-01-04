@@ -20,13 +20,13 @@ Authorization: Token efaccfee27343fe662fedfd18f253f1b9a5bebd8
 ###
 
 # попытка поменять объявление
-PATCH http://127.0.0.1:8000/api/v1/advs/2/
+DELETE http://127.0.0.1:8000/api/v1/advs/2/
 Content-Type: application/json
 Authorization: Token d046da7fafb5fbc5c77e035cec4e44d567d8faba
 
-{
-  "status": "OPEN"
-}
+//{
+//  "status": "CLOSED"
+//}
 
 ###
 
