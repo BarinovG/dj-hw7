@@ -83,7 +83,9 @@ REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_RATES': {
         'user': '20/min',
         'anon': '10/min'
-    }
+    },
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 5
 }
 
 WSGI_APPLICATION = 'api_with_restrictions.wsgi.application'

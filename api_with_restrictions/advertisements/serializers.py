@@ -31,11 +31,11 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         return super().create(validated_data)
 
     def validate(self, data):
-        advs_count = self.Meta.model.objects.filter(creator=self.context["request"].user,
+        advs_open_count = self.Meta.model.objects.filter(creator=self.context["request"].user,
                                                     status=AdvertisementStatusChoices.OPEN).count()
-        if advs_count > 9 and ((self.context["request"].method == "POST" or
+        if advs_open_count > 9 and ((self.context["request"].method == "POST" or
                                 self.context["request"].method == "PATCH") and
-                                data["status"] == "OPEN"):
+                               data["status"] == "OPEN"):
             raise ValidationError('Нельзя создать больше 10 объявлений')
         return data
 

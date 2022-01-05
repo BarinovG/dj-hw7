@@ -4,29 +4,30 @@
 # получение объявлений
 GET http://127.0.0.1:8000/api/v1/advs/
 Content-Type: application/json
+Authorization: Token efaccfee27343fe662fedfd18f253f1b9a5bebd8
 
 ###
 
 # создание объявления
 POST http://127.0.0.1:8000/api/v1/advs/
 Content-Type: application/json
-Authorization: Token efaccfee27343fe662fedfd18f253f1b9a5bebd8
+Authorization: Token d046da7fafb5fbc5c77e035cec4e44d567d8faba
+
 
 {
   "title": "Шкаф IKEA",
-  "description": "Срочно",
-  "status": "CLOSED"
+  "description": "Черновик"
 }
 
 ###
 
 # попытка поменять объявление
-PATCH http://127.0.0.1:8000/api/v1/advs/15/
+PATCH http://127.0.0.1:8000/api/v1/advs/17/
 Content-Type: application/json
 Authorization: Token efaccfee27343fe662fedfd18f253f1b9a5bebd8
 
 {
-  "status": "OPEN"
+  "status": "DRAFT"
 }
 
 ###
@@ -43,5 +44,5 @@ Authorization: Token d046da7fafb5fbc5c77e035cec4e44d567d8faba
 ###
 
 # фильтрация по статусу
-GET http://127.0.0.1:8000/api/v1/advs/?status=CLOSED
+GET http://127.0.0.1:8000/api/v1/advs/?status=OPEN
 Content-Type: application/json
