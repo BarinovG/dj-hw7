@@ -14,19 +14,20 @@ Authorization: Token efaccfee27343fe662fedfd18f253f1b9a5bebd8
 
 {
   "title": "Шкаф IKEA",
-  "description": "Срочно"
+  "description": "Срочно",
+  "status": "CLOSED"
 }
 
 ###
 
 # попытка поменять объявление
-DELETE http://127.0.0.1:8000/api/v1/advs/2/
+PATCH http://127.0.0.1:8000/api/v1/advs/15/
 Content-Type: application/json
-Authorization: Token d046da7fafb5fbc5c77e035cec4e44d567d8faba
+Authorization: Token efaccfee27343fe662fedfd18f253f1b9a5bebd8
 
-//{
-//  "status": "CLOSED"
-//}
+{
+  "status": "OPEN"
+}
 
 ###
 
@@ -41,6 +42,6 @@ Authorization: Token d046da7fafb5fbc5c77e035cec4e44d567d8faba
 
 ###
 
-# фильтрация по дате
+# фильтрация по статусу
 GET http://127.0.0.1:8000/api/v1/advs/?status=CLOSED
 Content-Type: application/json
