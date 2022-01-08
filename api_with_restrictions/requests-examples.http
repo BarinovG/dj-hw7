@@ -2,32 +2,32 @@
 
 
 # получение объявлений
-GET http://127.0.0.1:8000/api/v1/advs/
+GET http://127.0.0.1:8000/api/v1/advs/41/
 Content-Type: application/json
-Authorization: Token f82d73751bf007da87a5afef1877bfae3270c13e
+#Authorization: Token f82d73751bf007da87a5afef1877bfae3270c13e
 
 ###
 
 # создание объявления
 POST http://127.0.0.1:8000/api/v1/advs/
 Content-Type: application/json
-Authorization: Token f82d73751bf007da87a5afef1877bfae3270c13e
+Authorization: Token 15b54467e53e6fde28ef1ce6ba5d9f8cb439de2d
 
 
 {
-  "title": "Первое объявление",
+  "title": "Первое объявление Гостя",
   "description": "1"
 }
 
 ###
 
 # попытка поменять объявление
-PATCH http://127.0.0.1:8000/api/v1/advs/41/
+PATCH http://127.0.0.1:8000/api/v1/advs/52/
 Content-Type: application/json
-Authorization: Token f82d73751bf007da87a5afef1877bfae3270c13e
+Authorization: Token 15b54467e53e6fde28ef1ce6ba5d9f8cb439de2d
 
 {
-  "status": "OPEN"
+  "status": "CLOSED"
 }
 
 ###

@@ -16,7 +16,7 @@ class IsOwnerOrAdmin(BasePermission):
 class IsDraftStatus(BasePermission):
     def has_object_permission(self, request, view, obj):
 
-        if request.user.is_staff:
+        if request.user.is_staff or obj.creator == request.user:
             return True
 
         if obj.status == AdvertisementStatusChoices.DRAFT and request.user == obj.creator:
