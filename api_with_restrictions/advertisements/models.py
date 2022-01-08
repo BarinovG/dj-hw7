@@ -17,7 +17,7 @@ class Advertisement(models.Model):
     description = models.TextField(default='', verbose_name='Описание')
     status = models.TextField(
         choices=AdvertisementStatusChoices.choices,
-        default=AdvertisementStatusChoices.DRAFT,
+        default=AdvertisementStatusChoices.OPEN,
         verbose_name='Cтатус'
     )
     creator = models.ForeignKey(

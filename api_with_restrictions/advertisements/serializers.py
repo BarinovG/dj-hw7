@@ -33,9 +33,7 @@ class AdvertisementSerializer(serializers.ModelSerializer):
     def validate(self, data):
         advs_open_count = self.Meta.model.objects.filter(creator=self.context["request"].user,
                                                     status=AdvertisementStatusChoices.OPEN).count()
-        if advs_open_count > 9 and ((self.context["request"].method == "POST" or
-                                self.context["request"].method == "PATCH") and
-                               data["status"] == "OPEN"):
+        if advs_open_count > 9 and self.context["request"].method == "POST" or (self.context["request"].method == "PATCH" and data["status"] == "OPEN"):
             raise ValidationError('Нельзя создать больше 10 объявлений')
         return data
 
